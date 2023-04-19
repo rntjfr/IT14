@@ -1,22 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_session_5/model/product.dart';
 import 'package:flutter_session_5/productdetails.dart';
 
 class ProductList extends StatelessWidget {
-  const ProductList(
-      {super.key,
-      required this.image,
-      required this.title,
-      required this.price,
-      required this.star,
-      required this.sold,
-      required this.location});
+  const ProductList({super.key, required this.product});
 
-  final String image;
-  final String title;
-  final int price;
-  final int star;
-  final String sold;
-  final String location;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +16,7 @@ class ProductList extends StatelessWidget {
         child: Column(
           children: [
             Image.asset(
-              image,
+              product.image,
               width: 185,
               height: 185,
             ),
@@ -37,7 +26,7 @@ class ProductList extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Text(
-                      title,
+                      product.title,
                       softWrap: false,
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
@@ -51,7 +40,7 @@ class ProductList extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    '₱$price',
+                    '₱${product.price}',
                     style: const TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -68,7 +57,7 @@ class ProductList extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  setStar(star),
+                  setStar(product.star),
                   const SizedBox(
                     width: 10,
                   ),
@@ -77,7 +66,7 @@ class ProductList extends StatelessWidget {
                       softWrap: false,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      sold,
+                      product.sold,
                     ),
                   ),
                 ],
@@ -99,7 +88,7 @@ class ProductList extends StatelessWidget {
                       softWrap: false,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      location,
+                      product.location,
                     ),
                   ),
                 ],
@@ -127,14 +116,7 @@ class ProductList extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ProductDetails(
-                          image: image,
-                          title: title,
-                          price: price,
-                          star: star,
-                          sold: sold,
-                          location: location,
-                        ),
+                        builder: (context) => ProductDetails(product: product),
                       ),
                     );
                   },

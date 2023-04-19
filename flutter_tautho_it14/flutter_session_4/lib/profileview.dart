@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_session_4/model/post.dart';
+import 'package:flutter_session_4/model/friend.dart';
 import 'package:flutter_session_4/profileviewdetails.dart';
 
 class ProfileView extends StatelessWidget {
@@ -138,20 +139,20 @@ class ProfileView extends StatelessWidget {
         ],
       );
 
-  profileFriends(img, name) => Card(
+  profileFriends(Friend friend) => Card(
         child: Container(
           padding: const EdgeInsets.all(5),
           child: Column(
             children: [
               Image.asset(
-                img,
+                friend.friendimg,
                 height: 110,
               ),
               const SizedBox(
                 height: 5,
               ),
               Text(
-                name,
+                friend.friendname,
                 style: txtStyle1,
               ),
             ],
@@ -162,35 +163,17 @@ class ProfileView extends StatelessWidget {
   listofFriends1() => Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          profileFriends(
-            'assets/genshin/ayaka.jpg',
-            'Kamisato Ayaka',
-          ),
-          profileFriends(
-            'assets/genshin/ayato.jpg',
-            'Kamisato Ayato',
-          ),
-          profileFriends(
-            'assets/genshin/kazuha.jpg',
-            'Kaedehara Kazuha',
-          ),
+          profileFriends(friend1),
+          profileFriends(friend2),
+          profileFriends(friend3),
         ],
       );
   listofFriends2() => Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          profileFriends(
-            'assets/genshin/ei.jpg',
-            'Raiden Shogun',
-          ),
-          profileFriends(
-            'assets/genshin/itto.jpg',
-            'Arataki Itto',
-          ),
-          profileFriends(
-            'assets/genshin/kuki.jpg',
-            'Kuki Shinobu',
-          ),
+          profileFriends(friend4),
+          profileFriends(friend5),
+          profileFriends(friend6),
         ],
       );
   postData(context, Post post) => GestureDetector(
@@ -347,5 +330,29 @@ class ProfileView extends StatelessWidget {
     img: 'assets/products/image_30.jpg',
     numcomments: '12',
     numshares: '36',
+  );
+  Friend friend1 = Friend(
+    friendimg: 'assets/genshin/ayaka.jpg',
+    friendname: 'Kamisato Ayaka',
+  );
+  Friend friend2 = Friend(
+    friendimg: 'assets/genshin/ayato.jpg',
+    friendname: 'Kamisato Ayato',
+  );
+  Friend friend3 = Friend(
+    friendimg: 'assets/genshin/kazuha.jpg',
+    friendname: 'Kaedehara Kazuha',
+  );
+  Friend friend4 = Friend(
+    friendimg: 'assets/genshin/ei.jpg',
+    friendname: 'Raiden Shogun',
+  );
+  Friend friend5 = Friend(
+    friendimg: 'assets/genshin/itto.jpg',
+    friendname: 'Arataki Itto',
+  );
+  Friend friend6 = Friend(
+    friendimg: 'assets/genshin/kuki.jpg',
+    friendname: 'Kuki Shinobu',
   );
 }

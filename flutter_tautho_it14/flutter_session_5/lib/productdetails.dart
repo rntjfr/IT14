@@ -1,21 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_session_5/model/product.dart';
 
 class ProductDetails extends StatelessWidget {
-  ProductDetails(
-      {super.key,
-      required this.image,
-      required this.title,
-      required this.price,
-      required this.star,
-      required this.sold,
-      required this.location});
+  ProductDetails({super.key, required this.product});
 
-  final String image;
-  final String title;
-  final int price;
-  final int star;
-  final String sold;
-  final String location;
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +26,7 @@ class ProductDetails extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage(image),
+                    image: AssetImage(product.image),
                   ),
                 ),
               ),
@@ -52,7 +41,7 @@ class ProductDetails extends StatelessWidget {
                   children: [
                     Expanded(
                       child: Text(
-                        title,
+                        product.title,
                         style: boldTitle,
                         softWrap: false,
                         maxLines: 1,
@@ -68,7 +57,7 @@ class ProductDetails extends StatelessWidget {
                 child: Row(
                   children: [
                     Text(
-                      '₱$price',
+                      '₱${product.price}',
                       style: boldTitle,
                     ),
                   ],
@@ -79,9 +68,9 @@ class ProductDetails extends StatelessWidget {
                     const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 child: Row(
                   children: [
-                    loopStarRating(star),
+                    loopStarRating(product.star),
                     Text(
-                      sold,
+                      product.sold,
                       style: const TextStyle(fontSize: 16),
                     ),
                   ],
@@ -96,7 +85,7 @@ class ProductDetails extends StatelessWidget {
                 child: Row(
                   children: [
                     const Icon(Icons.add_location),
-                    Text(location),
+                    Text(product.location),
                   ],
                 ),
               ),
