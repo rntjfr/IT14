@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_session_6/login/login1.dart';
+import 'package:flutter_session_6/login/login4.dart';
 
-class Register1 extends StatefulWidget {
-  const Register1({super.key});
+class Register4 extends StatefulWidget {
+  const Register4({super.key});
 
   @override
-  State<Register1> createState() => _Register1State();
+  State<Register4> createState() => _Register4State();
 }
 
-class _Register1State extends State<Register1> {
+class _Register4State extends State<Register4> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register Page 1'),
+        title: const Text('Register Page 4'),
       ),
       body: ListView(
         children: [
@@ -79,7 +79,7 @@ class _Register1State extends State<Register1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Login1(),
+                        builder: (context) => const Login4(),
                       ),
                     ),
                   },
@@ -98,19 +98,38 @@ class _Register1State extends State<Register1> {
     );
   }
 
-  txtfield(text) => TextField(
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: text,
+  txtfield(text) => Container(
+        width: 300,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+                width: 1,
+                color: Color.fromARGB(255, 21, 13, 22),
+                style: BorderStyle.solid)),
+        child: TextField(
+          decoration: InputDecoration(
+              hintText: text,
+              contentPadding: const EdgeInsets.all(15),
+              border: InputBorder.none),
+          onChanged: (value) {
+            // Do something
+          },
         ),
       );
-  button(text, icon) => ElevatedButton.icon(
-        // <-- ElevatedButton
+  button(text, icon) => ElevatedButton(
         onPressed: () {},
-        icon: Icon(
-          icon,
-          size: 24.0,
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(text),
+            const SizedBox(
+              width: 5,
+            ),
+            Icon(
+              icon,
+              size: 24.0,
+            ),
+          ],
         ),
-        label: Text(text),
       );
 }

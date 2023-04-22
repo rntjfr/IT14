@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_session_6/login/login1.dart';
+import 'package:flutter_session_6/login/login2.dart';
 
-class Register1 extends StatefulWidget {
-  const Register1({super.key});
+class Register2 extends StatefulWidget {
+  const Register2({super.key});
 
   @override
-  State<Register1> createState() => _Register1State();
+  State<Register2> createState() => _Register2State();
 }
 
-class _Register1State extends State<Register1> {
+class _Register2State extends State<Register2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register Page 1'),
+        title: const Text('Register Page 2'),
       ),
       body: ListView(
         children: [
@@ -79,7 +79,7 @@ class _Register1State extends State<Register1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Login1(),
+                        builder: (context) => const Login2(),
                       ),
                     ),
                   },
@@ -98,14 +98,13 @@ class _Register1State extends State<Register1> {
     );
   }
 
-  txtfield(text) => TextField(
+  txtfield(text) => TextFormField(
         decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: text,
+          border: const UnderlineInputBorder(),
+          labelText: text,
         ),
       );
-  button(text, icon) => ElevatedButton.icon(
-        // <-- ElevatedButton
+  button(text, icon) => TextButton.icon(
         onPressed: () {},
         icon: Icon(
           icon,

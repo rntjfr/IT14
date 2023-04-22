@@ -5,6 +5,7 @@ import 'package:flutter_session_6/page1.dart';
 import 'package:flutter_session_6/page2.dart';
 import 'package:flutter_session_6/page3.dart';
 import 'package:flutter_session_6/page4.dart';
+import 'package:flutter_session_6/register/register1.dart';
 import 'package:flutter_session_6/textfields.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: Login1(),
+      home: Buttons(),
     );
   }
 }

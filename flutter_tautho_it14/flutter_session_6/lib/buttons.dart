@@ -1,4 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_session_6/login/login1.dart';
+import 'package:flutter_session_6/login/login2.dart';
+import 'package:flutter_session_6/login/login3.dart';
+import 'package:flutter_session_6/login/login4.dart';
+import 'package:flutter_session_6/login/login5.dart';
+import 'package:flutter_session_6/login/login6.dart';
+import 'package:flutter_session_6/login/login7.dart';
+import 'package:flutter_session_6/login/login8.dart';
+import 'package:flutter_session_6/login/login9.dart';
 
 class Buttons extends StatelessWidget {
   const Buttons({super.key});
@@ -15,7 +24,14 @@ class Buttons extends StatelessWidget {
             ),
             ElevatedButton.icon(
               // <-- ElevatedButton
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login1(),
+                  ),
+                );
+              },
               icon: const Icon(
                 Icons.download,
                 size: 24.0,
@@ -23,7 +39,14 @@ class Buttons extends StatelessWidget {
               label: const Text('Download'),
             ),
             TextButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login2(),
+                  ),
+                );
+              },
               icon: const Icon(
                 Icons.download,
                 size: 24.0,
@@ -31,7 +54,14 @@ class Buttons extends StatelessWidget {
               label: const Text('Download'),
             ),
             OutlinedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login3(),
+                  ),
+                );
+              },
               icon: const Icon(
                 Icons.download,
                 size: 24.0,
@@ -39,7 +69,14 @@ class Buttons extends StatelessWidget {
               label: const Text('Download'),
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login4(),
+                  ),
+                );
+              },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: const [
@@ -59,7 +96,14 @@ class Buttons extends StatelessWidget {
                 shape: const StadiumBorder(),
               ),
               child: const Text('Pill Button'),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login5(),
+                  ),
+                );
+              },
             ),
             SizedBox.fromSize(
               size: const Size(56, 56),
@@ -68,7 +112,14 @@ class Buttons extends StatelessWidget {
                   color: Colors.blue,
                   child: InkWell(
                     splashColor: Colors.green,
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Login6(),
+                        ),
+                      );
+                    },
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
@@ -89,7 +140,14 @@ class Buttons extends StatelessWidget {
               ),
             ),
             GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login7(),
+                  ),
+                );
+              },
               child: Container(
                 width: 240,
                 height: 80,
@@ -109,7 +167,14 @@ class Buttons extends StatelessWidget {
                 Icons.download,
                 size: 24.0,
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login8(),
+                  ),
+                );
+              },
             ),
             SizedBox(
                 height: 100, //height of button
@@ -128,7 +193,12 @@ class Buttons extends StatelessWidget {
                             20) //content padding inside button
                         ),
                     onPressed: () {
-                      //code to execute when this button is pressed.
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Login9(),
+                        ),
+                      );
                     },
                     child: const Text("Elevated Button"))),
           ],

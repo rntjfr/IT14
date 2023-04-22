@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_session_6/login/login1.dart';
+import 'package:flutter_session_6/login/login3.dart';
 
-class Register1 extends StatefulWidget {
-  const Register1({super.key});
+class Register3 extends StatefulWidget {
+  const Register3({super.key});
 
   @override
-  State<Register1> createState() => _Register1State();
+  State<Register3> createState() => _Register3State();
 }
 
-class _Register1State extends State<Register1> {
+class _Register3State extends State<Register3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register Page 1'),
+        title: const Text('Register Page 3'),
       ),
       body: ListView(
         children: [
@@ -79,7 +79,7 @@ class _Register1State extends State<Register1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Login1(),
+                        builder: (context) => const Login3(),
                       ),
                     ),
                   },
@@ -100,12 +100,15 @@ class _Register1State extends State<Register1> {
 
   txtfield(text) => TextField(
         decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: text,
-        ),
+            hintText: text,
+            contentPadding: const EdgeInsets.all(15),
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
+        onChanged: (value) {
+          // do something
+        },
       );
-  button(text, icon) => ElevatedButton.icon(
-        // <-- ElevatedButton
+  button(text, icon) => OutlinedButton.icon(
         onPressed: () {},
         icon: Icon(
           icon,

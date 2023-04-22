@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_session_6/login/login1.dart';
+import 'package:flutter_session_6/login/login7.dart';
 
-class Register1 extends StatefulWidget {
-  const Register1({super.key});
+class Register7 extends StatefulWidget {
+  const Register7({super.key});
 
   @override
-  State<Register1> createState() => _Register1State();
+  State<Register7> createState() => _Register7State();
 }
 
-class _Register1State extends State<Register1> {
+class _Register7State extends State<Register7> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register Page 1'),
+        title: const Text('Register Page 7'),
       ),
       body: ListView(
         children: [
@@ -24,10 +24,8 @@ class _Register1State extends State<Register1> {
                   height: 240,
                   child: Image.asset('assets/noimage.jpg'),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
-                button('Upload', Icons.upload),
+                const SizedBox(height: 5),
+                button('Upload'),
                 Container(
                   padding: const EdgeInsets.all(10),
                   child: Column(
@@ -66,9 +64,13 @@ class _Register1State extends State<Register1> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    button('Login', Icons.login),
+                    button(
+                      'Login',
+                    ),
                     const SizedBox(width: 10),
-                    button('Cancel', Icons.cancel_outlined),
+                    button(
+                      'Cancel',
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -79,7 +81,7 @@ class _Register1State extends State<Register1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Login1(),
+                        builder: (context) => const Login7(),
                       ),
                     ),
                   },
@@ -100,17 +102,23 @@ class _Register1State extends State<Register1> {
 
   txtfield(text) => TextField(
         decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: text,
-        ),
+            icon: const Icon(Icons.lock), //icon at head of input
+            //prefixIcon: Icon(Icons.people), //you can use prefixIcon property too.
+            labelText: text,
+            suffixIcon: const Icon(Icons.remove_red_eye) //icon at tail of input
+            ),
       );
-  button(text, icon) => ElevatedButton.icon(
-        // <-- ElevatedButton
-        onPressed: () {},
-        icon: Icon(
-          icon,
-          size: 24.0,
+  button(text) => GestureDetector(
+        onTap: () {},
+        child: Container(
+          width: 120,
+          height: 40,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.blue[200],
+          ),
+          child: Text(text),
         ),
-        label: Text(text),
       );
 }

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_session_6/login/login1.dart';
+import 'package:flutter_session_6/login/login8.dart';
 
-class Register1 extends StatefulWidget {
-  const Register1({super.key});
+class Register8 extends StatefulWidget {
+  const Register8({super.key});
 
   @override
-  State<Register1> createState() => _Register1State();
+  State<Register8> createState() => _Register8State();
 }
 
-class _Register1State extends State<Register1> {
+class _Register8State extends State<Register8> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register Page 1'),
+        title: const Text('Register Page 8'),
       ),
       body: ListView(
         children: [
@@ -24,10 +24,17 @@ class _Register1State extends State<Register1> {
                   height: 240,
                   child: Image.asset('assets/noimage.jpg'),
                 ),
-                const SizedBox(
-                  height: 5,
+                const SizedBox(height: 5),
+                FloatingActionButton.extended(
+                  label: const Text('Upload'), // <-- Text
+                  backgroundColor: Colors.black,
+                  icon: const Icon(
+                    // <-- Icon
+                    Icons.upload,
+                    size: 24.0,
+                  ),
+                  onPressed: () {},
                 ),
-                button('Upload', Icons.upload),
                 Container(
                   padding: const EdgeInsets.all(10),
                   child: Column(
@@ -79,7 +86,7 @@ class _Register1State extends State<Register1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Login1(),
+                        builder: (context) => const Login8(),
                       ),
                     ),
                   },
@@ -100,8 +107,8 @@ class _Register1State extends State<Register1> {
 
   txtfield(text) => TextField(
         decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: text,
+          labelText: text,
+          icon: const Icon(Icons.people), //icon at head of input
         ),
       );
   button(text, icon) => ElevatedButton.icon(

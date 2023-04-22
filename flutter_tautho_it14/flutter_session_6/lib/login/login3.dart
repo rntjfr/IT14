@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_session_6/register/register1.dart';
+import 'package:flutter_session_6/register/register3.dart';
 
-class Login1 extends StatefulWidget {
-  const Login1({super.key});
+class Login3 extends StatefulWidget {
+  const Login3({super.key});
 
   @override
-  State<Login1> createState() => _Login1State();
+  State<Login3> createState() => _Login3State();
 }
 
-class _Login1State extends State<Login1> {
+class _Login3State extends State<Login3> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page 1'),
+        title: const Text('Login Page 3'),
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
@@ -46,7 +46,7 @@ class _Login1State extends State<Login1> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Register1(),
+                    builder: (context) => Register3(),
                   ),
                 ),
               },
@@ -62,12 +62,15 @@ class _Login1State extends State<Login1> {
 
   txtfield(text) => TextField(
         decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: text,
-        ),
+            hintText: text,
+            contentPadding: const EdgeInsets.all(15),
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(30))),
+        onChanged: (value) {
+          // do something
+        },
       );
-  button(text, icon) => ElevatedButton.icon(
-        // <-- ElevatedButton
+  button(text, icon) => OutlinedButton.icon(
         onPressed: () {},
         icon: Icon(
           icon,

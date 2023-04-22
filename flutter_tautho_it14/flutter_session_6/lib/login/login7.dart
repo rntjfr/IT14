@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_session_6/register/register1.dart';
+import 'package:flutter_session_6/register/register7.dart';
 
-class Login1 extends StatefulWidget {
-  const Login1({super.key});
+class Login7 extends StatefulWidget {
+  const Login7({super.key});
 
   @override
-  State<Login1> createState() => _Login1State();
+  State<Login7> createState() => _Login7State();
 }
 
-class _Login1State extends State<Login1> {
+class _Login7State extends State<Login7> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page 1'),
+        title: const Text('Login Page 7'),
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
@@ -35,9 +35,9 @@ class _Login1State extends State<Login1> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                button('Login', Icons.login),
+                button('Login'),
                 const SizedBox(width: 10),
-                button('Cancel', Icons.cancel_outlined)
+                button('Cancel')
               ],
             ),
             const SizedBox(height: 10),
@@ -46,7 +46,7 @@ class _Login1State extends State<Login1> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Register1(),
+                    builder: (context) => Register7(),
                   ),
                 ),
               },
@@ -62,17 +62,23 @@ class _Login1State extends State<Login1> {
 
   txtfield(text) => TextField(
         decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: text,
-        ),
+            icon: const Icon(Icons.lock), //icon at head of input
+            //prefixIcon: Icon(Icons.people), //you can use prefixIcon property too.
+            labelText: text,
+            suffixIcon: const Icon(Icons.remove_red_eye) //icon at tail of input
+            ),
       );
-  button(text, icon) => ElevatedButton.icon(
-        // <-- ElevatedButton
-        onPressed: () {},
-        icon: Icon(
-          icon,
-          size: 24.0,
+  button(text) => GestureDetector(
+        onTap: () {},
+        child: Container(
+          width: 120,
+          height: 40,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Colors.blue[200],
+          ),
+          child: Text(text),
         ),
-        label: Text(text),
       );
 }

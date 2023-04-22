@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_session_6/register/register1.dart';
+import 'package:flutter_session_6/register/register5.dart';
 
-class Login1 extends StatefulWidget {
-  const Login1({super.key});
+class Login5 extends StatefulWidget {
+  const Login5({super.key});
 
   @override
-  State<Login1> createState() => _Login1State();
+  State<Login5> createState() => _Login5State();
 }
 
-class _Login1State extends State<Login1> {
+class _Login5State extends State<Login5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page 1'),
+        title: const Text('Login Page 5'),
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
@@ -35,9 +35,9 @@ class _Login1State extends State<Login1> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                button('Login', Icons.login),
+                button('Login'),
                 const SizedBox(width: 10),
-                button('Cancel', Icons.cancel_outlined)
+                button('Cancel')
               ],
             ),
             const SizedBox(height: 10),
@@ -46,7 +46,7 @@ class _Login1State extends State<Login1> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Register1(),
+                    builder: (context) => Register5(),
                   ),
                 ),
               },
@@ -60,19 +60,27 @@ class _Login1State extends State<Login1> {
     );
   }
 
-  txtfield(text) => TextField(
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: text,
+  txtfield(text) => Container(
+        width: 300,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+                width: 1, color: Colors.purple, style: BorderStyle.solid)),
+        child: TextField(
+          minLines: 1,
+          maxLines: 1,
+          decoration: InputDecoration(
+              hintText: text,
+              contentPadding: const EdgeInsets.all(15),
+              border: InputBorder.none),
+          onChanged: (value) {},
         ),
       );
-  button(text, icon) => ElevatedButton.icon(
-        // <-- ElevatedButton
-        onPressed: () {},
-        icon: Icon(
-          icon,
-          size: 24.0,
+  button(text) => ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: const StadiumBorder(),
         ),
-        label: Text(text),
+        child: Text(text),
+        onPressed: () {},
       );
 }

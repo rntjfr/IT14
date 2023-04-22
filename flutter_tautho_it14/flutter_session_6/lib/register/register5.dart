@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_session_6/login/login1.dart';
+import 'package:flutter_session_6/login/login5.dart';
 
-class Register1 extends StatefulWidget {
-  const Register1({super.key});
+class Register5 extends StatefulWidget {
+  const Register5({super.key});
 
   @override
-  State<Register1> createState() => _Register1State();
+  State<Register5> createState() => _Register5State();
 }
 
-class _Register1State extends State<Register1> {
+class _Register5State extends State<Register5> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Register Page 1'),
+        title: const Text('Register Page 5'),
       ),
       body: ListView(
         children: [
@@ -24,10 +24,8 @@ class _Register1State extends State<Register1> {
                   height: 240,
                   child: Image.asset('assets/noimage.jpg'),
                 ),
-                const SizedBox(
-                  height: 5,
-                ),
-                button('Upload', Icons.upload),
+                const SizedBox(height: 5),
+                button('Upload'),
                 Container(
                   padding: const EdgeInsets.all(10),
                   child: Column(
@@ -66,9 +64,13 @@ class _Register1State extends State<Register1> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    button('Login', Icons.login),
+                    button(
+                      'Login',
+                    ),
                     const SizedBox(width: 10),
-                    button('Cancel', Icons.cancel_outlined),
+                    button(
+                      'Cancel',
+                    ),
                   ],
                 ),
                 const SizedBox(
@@ -79,7 +81,7 @@ class _Register1State extends State<Register1> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const Login1(),
+                        builder: (context) => const Login5(),
                       ),
                     ),
                   },
@@ -98,19 +100,27 @@ class _Register1State extends State<Register1> {
     );
   }
 
-  txtfield(text) => TextField(
-        decoration: InputDecoration(
-          border: const OutlineInputBorder(),
-          hintText: text,
+  txtfield(text) => Container(
+        width: 300,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(
+                width: 1, color: Colors.purple, style: BorderStyle.solid)),
+        child: TextField(
+          minLines: 1,
+          maxLines: 1,
+          decoration: InputDecoration(
+              hintText: text,
+              contentPadding: const EdgeInsets.all(15),
+              border: InputBorder.none),
+          onChanged: (value) {},
         ),
       );
-  button(text, icon) => ElevatedButton.icon(
-        // <-- ElevatedButton
-        onPressed: () {},
-        icon: Icon(
-          icon,
-          size: 24.0,
+  button(text) => ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: const StadiumBorder(),
         ),
-        label: Text(text),
+        child: Text(text),
+        onPressed: () {},
       );
 }
