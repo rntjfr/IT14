@@ -3,9 +3,14 @@ import 'package:flutter_session_6/model/friend.dart';
 import 'package:flutter_session_6/model/post.dart';
 import 'package:flutter_session_6/profileviewdetails.dart';
 
-class ProfileView extends StatelessWidget {
-  ProfileView({super.key});
+class ProfileView extends StatefulWidget {
+  const ProfileView({super.key});
 
+  @override
+  State<ProfileView> createState() => _ProfileViewState();
+}
+
+class _ProfileViewState extends State<ProfileView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -261,9 +266,13 @@ class ProfileView extends StatelessWidget {
               children: [
                 TextButton.icon(
                   style: TextButton.styleFrom(
-                    foregroundColor: Colors.grey,
+                    foregroundColor: post.isLiked ? Colors.blue : Colors.grey,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    setState(() {
+                      post.isLiked = !post.isLiked ? true : false;
+                    });
+                  },
                   icon: const Icon(Icons.thumb_up),
                   label: const Text('Like'),
                 ),
@@ -310,6 +319,7 @@ class ProfileView extends StatelessWidget {
     img: 'assets/genshin/qiqi.jpg',
     numcomments: '200',
     numshares: '300',
+    isLiked: false,
   );
 
   Post post2 = Post(
@@ -320,6 +330,7 @@ class ProfileView extends StatelessWidget {
     img: 'assets/products/img_plant_3.jpg',
     numcomments: '128',
     numshares: '125',
+    isLiked: false,
   );
 
   Post post3 = Post(
@@ -330,6 +341,7 @@ class ProfileView extends StatelessWidget {
     img: 'assets/products/image_30.jpg',
     numcomments: '12',
     numshares: '36',
+    isLiked: false,
   );
   Friend friend1 = Friend(
     friendimg: 'assets/genshin/ayaka.jpg',

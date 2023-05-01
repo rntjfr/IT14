@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_session_6/login.dart';
+import 'package:intl/intl.dart';
 
 class Register1 extends StatefulWidget {
   const Register1({super.key});
@@ -18,9 +20,26 @@ class _Register1State extends State<Register1> {
   TextEditingController birthdatecontroller = TextEditingController();
   String errmsg = '';
   bool isError = false;
+  DateTime dateTime = DateTime.now();
+
+  final gender = [
+    'Male',
+    'Female',
+  ];
+  final civilstatus = [
+    'Single',
+    'Married',
+    'Separated',
+    'Widowed',
+  ];
+
   @override
   void initState() {
     super.initState();
+    gendercontroller = TextEditingController(text: gender[0]);
+    civilstatuscontroller = TextEditingController(text: civilstatus[0]);
+    birthdatecontroller =
+        TextEditingController(text: DateFormat('MM/dd/yyyy').format(dateTime));
   }
 
   @override
@@ -120,7 +139,21 @@ class _Register1State extends State<Register1> {
                     vertical: 10,
                   ),
                   child: TextField(
-                    onTap: () {},
+                    readOnly: true,
+                    onTap: () {
+                      showCupertinoModalPopup(
+                        context: context,
+                        builder: (context) => CupertinoActionSheet(
+                          actions: [buildgenderpicker()],
+                          cancelButton: CupertinoActionSheetAction(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Cancel'),
+                          ),
+                        ),
+                      );
+                    },
                     controller: gendercontroller,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -134,7 +167,21 @@ class _Register1State extends State<Register1> {
                     vertical: 10,
                   ),
                   child: TextField(
-                    onTap: () {},
+                    readOnly: true,
+                    onTap: () {
+                      showCupertinoModalPopup(
+                        context: context,
+                        builder: (context) => CupertinoActionSheet(
+                          actions: [buildcivilstatuspicker()],
+                          cancelButton: CupertinoActionSheetAction(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Cancel'),
+                          ),
+                        ),
+                      );
+                    },
                     controller: civilstatuscontroller,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -148,7 +195,21 @@ class _Register1State extends State<Register1> {
                     vertical: 10,
                   ),
                   child: TextField(
-                    onTap: () {},
+                    readOnly: true,
+                    onTap: () {
+                      showCupertinoModalPopup(
+                        context: context,
+                        builder: (context) => CupertinoActionSheet(
+                          actions: [buildDatePicker()],
+                          cancelButton: CupertinoActionSheetAction(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: const Text('Cancel'),
+                          ),
+                        ),
+                      );
+                    },
                     controller: birthdatecontroller,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
@@ -255,4 +316,76 @@ class _Register1State extends State<Register1> {
       }
     });
   }
+
+  buildgenderpicker() => SizedBox(
+        height: 180,
+        child: StatefulBuilder(
+          builder: (context, setState) => CupertinoPicker(
+            looping: false,
+            itemExtent: 64,
+            onSelectedItemChanged: (index) {
+              setState(
+                () {
+                  final selectedgender = gender[index];
+                  print('Selected gender: $selectedgender');
+                  gendercontroller.text = selectedgender;
+                },
+              );
+            },
+            children: List.generate(gender.length, (index) {
+              final selectedgender = gender[index];
+              return Center(
+                child: Text(
+                  selectedgender,
+                ),
+              );
+            }),
+          ),
+        ),
+      );
+  buildcivilstatuspicker() => SizedBox(
+        height: 180,
+        child: StatefulBuilder(
+          builder: (context, setState) => CupertinoPicker(
+            looping: false,
+            itemExtent: 64,
+            onSelectedItemChanged: (index) {
+              setState(
+                () {
+                  final selectedsivilstatus = civilstatus[index];
+                  print('Selected civil status: $selectedsivilstatus');
+                  civilstatuscontroller.text = selectedsivilstatus;
+                },
+              );
+            },
+            children: List.generate(civilstatus.length, (index) {
+              final selectedsivilstatus = civilstatus[index];
+              return Center(
+                child: Text(
+                  selectedsivilstatus,
+                ),
+              );
+            }),
+          ),
+        ),
+      );
+
+  buildDatePicker() => SizedBox(
+        height: 180,
+        child: CupertinoDatePicker(
+          mode: CupertinoDatePickerMode.date,
+          initialDateTime: dateTime,
+          minimumYear: 1990,
+          maximumYear: dateTime.year,
+          onDateTimeChanged: (selectedDate) {
+            setState(
+              () {
+                dateTime = selectedDate;
+                final value = DateFormat('MM/dd/yyyy').format(dateTime);
+                birthdatecontroller.text = value;
+              },
+            );
+          },
+        ),
+      );
 }

@@ -11,7 +11,6 @@ class ItemPickerDialog2 extends StatefulWidget {
 }
 
 class _ItemPickerDialog2State extends State<ItemPickerDialog2> {
-  late FixedExtentScrollController scrollcontroller;
   late TextEditingController textcontroller;
   final products = [
     'product 1',
@@ -25,9 +24,6 @@ class _ItemPickerDialog2State extends State<ItemPickerDialog2> {
   @override
   void initState() {
     super.initState();
-    scrollcontroller = FixedExtentScrollController(
-      initialItem: index,
-    );
 
     textcontroller = TextEditingController(
       text: products[index],
@@ -37,7 +33,6 @@ class _ItemPickerDialog2State extends State<ItemPickerDialog2> {
   @override
   void dispose() {
     super.dispose();
-    scrollcontroller.dispose();
     textcontroller.dispose();
   }
 

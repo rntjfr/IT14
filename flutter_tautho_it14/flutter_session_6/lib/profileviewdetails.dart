@@ -214,7 +214,9 @@ class ProfileViewDetails extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           TextButton.icon(
-            style: txtcolor,
+            style: TextButton.styleFrom(
+              foregroundColor: post.isLiked ? Colors.blue : Colors.grey,
+            ),
             onPressed: () {},
             icon: const Icon(Icons.thumb_up),
             label: const Text('Like'),

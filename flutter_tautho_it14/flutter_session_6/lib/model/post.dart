@@ -6,6 +6,7 @@ class Post {
   final String img;
   final String numcomments;
   final String numshares;
+  bool isLiked;
 
   Post({
     required this.profileimg,
@@ -15,5 +16,6 @@ class Post {
     required this.img,
     required this.numcomments,
     required this.numshares,
+    required this.isLiked,
   });
 }
