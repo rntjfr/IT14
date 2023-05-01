@@ -4,15 +4,15 @@ import 'package:flutter_1st_lab_exam/profileview.dart';
 import 'package:flutter_1st_lab_exam/register.dart';
 
 class Login extends StatefulWidget {
-  var account;
-
   Login({
     super.key,
-    required this.account,
+    this.account,
   });
 
+  Account? account;
+
   @override
-  State<Login> createState() => _LoginState(account);
+  State<Login> createState() => _LoginState(account!);
 }
 
 class _LoginState extends State<Login> {
